@@ -1,9 +1,7 @@
 import * as functions from "firebase-functions";
 
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+exports.scheduledFunctionCrontab = functions.pubsub.schedule('*/20 * * * *')
+    .onRun((context: any) => {
+        functions.logger.info("Cronjob works!", {structuredData: true});
+        return null;
+    });
