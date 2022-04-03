@@ -1,15 +1,17 @@
 import * as functions from "firebase-functions";
+import * as admin from "firebase-admin";
 import axios from "axios";
+import {config, url} from "./env"
 
-exports.scheduledFunctionCrontab = functions.pubsub.schedule("*/20 * * * *")
+admin.initializeApp();
+
+exports.scheduledCryptoListingsDownload = functions.pubsub.schedule("0 0 * * *")
     .onRun(async () => {
         try {
-            const response = await axios.get("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=5000", {
-                headers: {
-                    "X-CMC_PRO_API_KEY": "fba02c9b-e35c-4332-bcbb-7ccad47c9607",
-                },
-            });
-            functions.logger.info(response.data);
+            const response = await axios.get(url, config);
+            const bucket = await admin.storage().bucket();
+            const file = bucket.file(new Date().toISOString());
+            await file.save(JSON.stringify(response.data.data));
         } catch (e) {
             functions.logger.error(e);
         }

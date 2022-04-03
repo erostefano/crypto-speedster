@@ -1,3 +1,8 @@
 *.iml
 .idea
 /.firebaserc
+
+backend/node_modules
+backend/lib
+
+backend/src/env.ts
