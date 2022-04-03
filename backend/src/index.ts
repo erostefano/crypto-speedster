@@ -1,11 +1,12 @@
-import * as functions from "firebase-functions";
-import * as admin from "firebase-admin";
-import axios from "axios";
-import {config, url} from "./env"
+import * as functions from 'firebase-functions';
+import * as admin from 'firebase-admin';
+import axios from 'axios';
+import { config, url } from './env';
 
 admin.initializeApp();
 
-exports.scheduledCryptoListingsDownload = functions.pubsub.schedule("0 0 * * *")
+exports.scheduledCryptoListingsDownload = functions.pubsub
+    .schedule('0 0 * * *')
     .onRun(async () => {
         try {
             const response = await axios.get(url, config);
