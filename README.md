@@ -11,4 +11,4 @@ This app is completely deployed on Firebase.
 
 ### Backend
 
-**scheduledCryptoListingsDownload** downloads every night the current Crypto ranking.
+**scheduledCryptoListingDownload** downloads every night the current Crypto ranking.

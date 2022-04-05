@@ -5,7 +5,7 @@ import { config, url } from './env';
 
 admin.initializeApp();
 
-exports.scheduledCryptoListingsDownload = functions.pubsub
+exports.scheduledCryptoListingDownload = functions.pubsub
     .schedule('0 0 * * *')
     .onRun(async () => {
         try {
