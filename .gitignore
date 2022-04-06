@@ -1,5 +1,6 @@
 *.iml
 .idea
+/.firebase
 /.firebaserc
 
 backend/node_modules
