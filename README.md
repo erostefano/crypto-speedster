@@ -5,10 +5,18 @@ missed the opportunities to invest in Dogecoin and Shiba Inu. What else did I mi
 much a crypto currency is rising**. By that we should see early which coins are trending and never miss an opportunity
 again.
 
-## Architecture
-
-This app is completely deployed on Firebase.
-
-### Backend
+## Backend
 
 **scheduledCryptoListingDownload** downloads every night the current Crypto ranking.
+
+## Frontend
+
+The frontend is built with the Angular framework.
+
+`cd frontend & npm run build` builds the web app
+
+## Deployment
+
+`firebase deploy -only functions` deploys the functions.
+
+`firebase deploy -only hosting` deploys the web app.
