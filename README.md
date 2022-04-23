@@ -17,6 +17,6 @@ The frontend is built with the Angular framework.
 
 ## Deployment
 
-`firebase deploy -only functions` deploys the functions.
+`firebase deploy --only functions` deploys the functions.
 
-`firebase deploy -only hosting` deploys the web app.
+`firebase deploy --only hosting` deploys the web app.
