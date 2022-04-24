@@ -52,7 +52,7 @@ exports.getRanking = functions.https.onRequest(async (req, resp) => {
             (a: { [x: string]: number }, b: { [x: string]: number }) =>
                 a[rankKey] - b[rankKey]
         )
-        .map((coin: { name: any }) => coin.name);
+        .map((coin: { name: string }) => coin.name);
 
     resp.send({
         data: coins,
