@@ -1,7 +1,11 @@
 import { Component } from "@angular/core";
-import { listAll, ref, Storage } from "@angular/fire/storage";
+import { Functions, httpsCallable } from "@angular/fire/functions";
 import { from, map, Observable } from "rxjs";
-import { StorageReference } from "@firebase/storage";
+
+interface Rank {
+  rank: number;
+  name: string;
+}
 
 @Component({
   selector: "app-root",
@@ -11,13 +15,11 @@ import { StorageReference } from "@firebase/storage";
 export class AppComponent {
   title = "crypto-speedster";
 
-  items: Observable<StorageReference[]>;
+  ranking$: Observable<Rank[]>;
 
-  constructor(private storage: Storage) {
-    const storageReference = ref(storage);
-
-    this.items = from(listAll(storageReference)).pipe(
-      map((listResult) => listResult.items)
-    );
+  constructor(private functions: Functions) {
+    this.ranking$ = from(
+      httpsCallable(functions, "getRanking?date=2022-04-22")()
+    ).pipe(map((value) => value.data as Rank[]));
   }
 }

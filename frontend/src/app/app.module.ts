@@ -5,7 +5,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { initializeApp, provideFirebaseApp } from "@angular/fire/app";
 import { environment } from "../environments/environment";
-import { getStorage, provideStorage } from "@angular/fire/storage";
+import { getFunctions, provideFunctions } from "@angular/fire/functions";
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,7 +13,7 @@ import { getStorage, provideStorage } from "@angular/fire/storage";
     BrowserModule,
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideStorage(() => getStorage()),
+    provideFunctions(() => getFunctions()),
   ],
   providers: [],
   bootstrap: [AppComponent],
