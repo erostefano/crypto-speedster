@@ -35,8 +35,13 @@ exports.getRanking = functions.https.onRequest(async (req, resp) => {
     const files = filesResponse[0];
     const file = files.find((file) => file.metadata?.name?.includes(queryDate));
 
-    // TODO: return different status code if file not found
-    const fileName = file!.metadata.name;
+    if (!file) {
+        resp.status(404);
+        return;
+    }
+
+    const fileName = file.metadata.name;
+
     const tempFile = path.join(os.tmpdir(), fileName);
     await bucket.file(fileName).download({ destination: tempFile });
 
