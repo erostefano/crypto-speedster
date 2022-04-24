@@ -1,25 +1,20 @@
-import { Component } from "@angular/core";
-import { Functions, httpsCallable } from "@angular/fire/functions";
-import { from, map, Observable } from "rxjs";
-
-interface Rank {
-  rank: number;
-  name: string;
-}
+import { Component } from '@angular/core';
+import { Functions, httpsCallable } from '@angular/fire/functions';
+import { from, map, Observable } from 'rxjs';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = "crypto-speedster";
+    title = 'crypto-speedster';
 
-  ranking$: Observable<Rank[]>;
+    ranking$: Observable<string[]>;
 
-  constructor(private functions: Functions) {
-    this.ranking$ = from(
-      httpsCallable(functions, "getRanking?date=2022-04-22")()
-    ).pipe(map((value) => value.data as Rank[]));
-  }
+    constructor(private functions: Functions) {
+        this.ranking$ = from(
+            httpsCallable(functions, 'getRanking?date=2022-04-22')()
+        ).pipe(map((value) => value.data as string[]));
+    }
 }

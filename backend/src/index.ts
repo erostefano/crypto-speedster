@@ -42,15 +42,13 @@ exports.getRanking = functions.https.onRequest(async (req, resp) => {
 
     const ranking = fs.readFileSync(tempFile, { encoding: 'utf-8' });
 
-    // TODO: sort rank to avoid sending the ranking
-    const coins = JSON.parse(ranking).map(
-        (coin: { [x: string]: any; name: any }) => {
-            return {
-                rank: coin[rankKey],
-                name: coin.name,
-            };
-        }
-    );
+    const coins = JSON.parse(ranking)
+        .sort(
+            (a: { [x: string]: number }, b: { [x: string]: number }) =>
+                a[rankKey] - b[rankKey]
+        )
+        .map((coin: { name: any }) => coin.name);
+
     resp.send({
         data: coins,
     });
