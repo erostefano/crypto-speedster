@@ -9,6 +9,8 @@ again.
 
 **scheduledCryptoListingDownload** downloads every night the current Crypto ranking.
 
+**getRanking** an http endpoint to get ranking
+
 ## Frontend
 
 The frontend is built with the Angular framework.

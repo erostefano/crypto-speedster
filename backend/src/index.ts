@@ -41,8 +41,10 @@ exports.getRanking = functions.https.onRequest(async (req, resp) => {
     await bucket.file(fileName).download({ destination: tempFile });
 
     const ranking = fs.readFileSync(tempFile, { encoding: 'utf-8' });
+
+    // TODO: sort rank to avoid sending the ranking
     const coins = JSON.parse(ranking).map(
-        (coin: { cmc_rank: string; name: string }) => {
+        (coin: { [x: string]: any; name: any }) => {
             return {
                 rank: coin[rankKey],
                 name: coin.name,
