@@ -9,7 +9,7 @@ again.
 
 **scheduledCryptoListingDownload** downloads every night the current Crypto ranking.
 
-**getRanking** an http endpoint to get ranking
+**getRanking** is a http endpoint which returns the ranking
 
 ## Frontend
 
