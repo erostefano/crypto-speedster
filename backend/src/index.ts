@@ -36,7 +36,7 @@ exports.getRanking = functions.https.onRequest(async (req, resp) => {
     const file = files.find((file) => file.metadata?.name?.includes(queryDate));
 
     if (!file) {
-        resp.status(404);
+        resp.status(404).send('not found');
         return;
     }
 
