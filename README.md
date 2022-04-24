@@ -7,9 +7,11 @@ again.
 
 ## Backend
 
-**scheduledCryptoListingDownload** downloads every night the current Crypto ranking.
+**scheduledCryptoRankingDownload** downloads every night the current Crypto ranking.
 
-**getRanking** is a http endpoint which returns the ranking
+**getRanking** is a http endpoint which returns the ranking for a specific date.
+
+`cd backend & npm run build` builds the functions
 
 ## Frontend
 

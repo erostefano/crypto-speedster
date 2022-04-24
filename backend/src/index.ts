@@ -8,7 +8,7 @@ import * as fs from 'fs';
 
 admin.initializeApp();
 
-exports.scheduledCryptoListingDownload = functions.pubsub
+exports.scheduledCryptoRankingDownload = functions.pubsub
     .schedule('0 0 * * *')
     .onRun(async () => {
         try {
