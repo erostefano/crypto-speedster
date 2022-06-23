@@ -1,3 +1,20 @@
-<ol *ngIf="ranking$ | async as ranking">
-    <li *ngFor="let rank of ranking">{{rank}}</li>
-</ol>
+<table *ngIf="ranking$ | async as ranking">
+    <thead>
+        <tr>
+            <td>Coin</td>
+            <td>1 week ago</td>
+            <td>2 weeks ago</td>
+            <td>1 month ago</td>
+            <td>2 months ago</td>
+            <td>3 months ago</td>
+            <td>half year ago</td>
+            <td>1 year ago</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let rank of ranking; let i = index">
+            <td>{{i + 1}} {{rank}}</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
