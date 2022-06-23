@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Functions, httpsCallable } from '@angular/fire/functions';
-import { from, map, Observable } from 'rxjs';
+import { from, map, Observable, forkJoin } from 'rxjs';
 
 @Component({
     selector: 'app-root',
@@ -10,11 +10,17 @@ import { from, map, Observable } from 'rxjs';
 export class AppComponent {
     title = 'crypto-speedster';
 
-    ranking$: Observable<string[]>;
+    rankings$: Observable<any>;
 
     constructor(private functions: Functions) {
-        this.ranking$ = from(
-            httpsCallable(functions, 'getRanking?date=2022-04-22')()
-        ).pipe(map((value) => value.data as string[]));
+        this.rankings$ = 
+            forkJoin({
+                today: from(httpsCallable(functions, 'getRanking?date=2022-04-22')()),
+                oneWeekAgo: from(httpsCallable(functions, 'getRanking?date=2022-05-22')()),
+            });
+    }
+
+    getRank(ranking: string[], coin: string): number {
+        return ranking.findIndex(rankCoin => rankCoin === coin) + 1;
     }
 }

@@ -1,4 +1,4 @@
-<table *ngIf="ranking$ | async as ranking">
+<table *ngIf="rankings$ | async as rankings">
     <thead>
         <tr>
             <td>Coin</td>
@@ -12,9 +12,9 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let rank of ranking; let i = index">
+        <tr *ngFor="let rank of rankings.today.data; let i = index">
             <td>{{i + 1}} {{rank}}</td>
-            <td></td>
+            <td>{{getRank(rankings.oneWeekAgo.data, rank)}}</td>
         </tr>
     </tbody>
 </table>
