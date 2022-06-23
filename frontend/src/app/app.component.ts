@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Functions, httpsCallable } from '@angular/fire/functions';
 import { from, map, Observable, forkJoin } from 'rxjs';
+import { format, subWeeks } from 'date-fns';
 
 @Component({
     selector: 'app-root',
@@ -15,8 +16,9 @@ export class AppComponent {
     constructor(private functions: Functions) {
         this.rankings$ = 
             forkJoin({
-                today: from(httpsCallable(functions, 'getRanking?date=2022-04-22')()),
-                oneWeekAgo: from(httpsCallable(functions, 'getRanking?date=2022-05-22')()),
+                today: from(httpsCallable(functions, `getRanking?date=${format(new Date(), 'yyyy-MM-dd')}`)()),
+                oneWeekAgo: from(httpsCallable(functions, `getRanking?date=${format(subWeeks(new Date(), 1), 'yyyy-MM-dd')}`)()),
+                twoWeeksAgo: from(httpsCallable(functions, `getRanking?date=${format(subWeeks(new Date(), 2), 'yyyy-MM-dd')}`)()),
             });
     }
 

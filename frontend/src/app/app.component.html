@@ -15,6 +15,7 @@
         <tr *ngFor="let rank of rankings.today.data; let i = index">
             <td>{{i + 1}} {{rank}}</td>
             <td>{{getRank(rankings.oneWeekAgo.data, rank)}}</td>
+            <td>{{getRank(rankings.twoWeeksAgo.data, rank)}}</td>
         </tr>
     </tbody>
 </table>
