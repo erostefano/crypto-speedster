@@ -9,7 +9,7 @@ import * as fs from 'fs';
 admin.initializeApp();
 
 exports.scheduledCryptoRankingDownload = functions.pubsub
-    .schedule('0 0 * * *')
+    .schedule('0 23 * * *')
     .onRun(async () => {
         try {
             const response = await axios.get(url, config);
