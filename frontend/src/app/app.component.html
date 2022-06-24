@@ -12,15 +12,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let rank of rankings.today.data; let i = index">
+        <tr *ngFor="let rank of rankings.today; let i = index">
             <td>{{i + 1}} {{rank}}</td>
-            <td>{{getRank(rankings.oneWeekAgo.data, rank)}}</td>
-            <td>{{getRank(rankings.twoWeeksAgo.data, rank)}}</td>
-            <td>{{getRank(rankings.oneMonthAgo.data, rank)}}</td>
-            <td>{{getRank(rankings.twoMonthsAgo.data, rank)}}</td>
-            <td>{{getRank(rankings.threeMonthsAgo.data, rank)}}</td>
-            <td>{{getRank(rankings.halfYearAgo.data, rank)}}</td>
-            <td>{{getRank(rankings.oneYearAgo.data, rank)}}</td>
+            <td>{{getRank(rankings.oneWeekAgo, rank)}}</td>
+            <td>{{getRank(rankings.twoWeeksAgo, rank)}}</td>
+            <td>{{getRank(rankings.oneMonthAgo, rank)}}</td>
+            <td>{{getRank(rankings.twoMonthsAgo, rank)}}</td>
+            <td>{{getRank(rankings.threeMonthsAgo, rank)}}</td>
+            <td>{{getRank(rankings.halfYearAgo, rank)}}</td>
+            <td>{{getRank(rankings.oneYearAgo, rank)}}</td>
         </tr>
     </tbody>
 </table>
