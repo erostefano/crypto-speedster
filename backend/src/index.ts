@@ -48,6 +48,7 @@ exports.getRanking = functions.https.onRequest(async (req, resp) => {
     const ranking = fs.readFileSync(tempFile, { encoding: 'utf-8' });
 
     const coins = JSON.parse(ranking)
+        .splice(0, 2000)
         .sort(
             (a: { [x: string]: number }, b: { [x: string]: number }) =>
                 a[rankKey] - b[rankKey]
