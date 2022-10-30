@@ -1,3 +1,15 @@
+<mat-toolbar color="primary">
+    <span>Crypto Speedster</span>
+    <span class="spacer"></span>
+    <a href="https://twitter.com/StefanoEro" target="_blank">
+        <button mat-icon-button>
+            <mat-icon [svgIcon]="'assets/twitter.svg'">
+                <img height="100%" src="assets/twitter.svg" alt="Developers Twitter Profile"/>
+            </mat-icon>
+        </button>
+    </a>
+</mat-toolbar>
+
 <ng-container *ngIf="rows$ | async as rows">
     <table mat-table [dataSource]="rows">
         <ng-container matColumnDef="today">
