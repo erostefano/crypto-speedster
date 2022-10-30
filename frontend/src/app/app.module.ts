@@ -8,6 +8,9 @@ import {environment} from "../environments/environment";
 import {getFunctions, provideFunctions} from "@angular/fire/functions";
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule} from "@angular/material/table";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -19,6 +22,9 @@ import {MatTableModule} from "@angular/material/table";
         provideFunctions(() => getFunctions()),
         NoopAnimationsModule,
         MatTableModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
