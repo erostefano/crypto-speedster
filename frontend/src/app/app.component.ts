@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { Functions, httpsCallable } from '@angular/fire/functions';
-import { catchError, forkJoin, from, map, Observable, of } from 'rxjs';
-import { format, subMonths, subWeeks } from 'date-fns';
+import {Component} from '@angular/core';
+import {Functions, httpsCallable} from '@angular/fire/functions';
+import {catchError, forkJoin, from, map, Observable, of} from 'rxjs';
+import {format, subMonths, subWeeks} from 'date-fns';
 
 const error$: Observable<string[]> = of([]);
 
@@ -14,6 +14,8 @@ export class AppComponent {
     title = 'crypto-speedster';
 
     rows$: Observable<any>;
+
+    displayedColumns: string[] = ['today', 'one week ago', 'two weeks ago', 'one month ago', 'two months ago', 'three months ago', 'half year ago', 'one year ago'];
 
     constructor(private functions: Functions) {
         this.rows$ =
