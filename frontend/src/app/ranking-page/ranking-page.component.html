@@ -1,0 +1,53 @@
+
+<router-outlet></router-outlet>
+
+<ng-container *ngIf="rows$ | async as rows; else loading">
+    <table mat-table [dataSource]="rows">
+        <ng-container matColumnDef="today">
+            <th mat-header-cell *matHeaderCellDef>Today</th>
+            <td mat-cell *matCellDef="let element; let i = index">{{i + 1}} {{element.today}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="one week ago">
+            <th mat-header-cell *matHeaderCellDef>One week ago</th>
+            <td mat-cell *matCellDef="let element">{{element.oneWeekAgo}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="two weeks ago">
+            <th mat-header-cell *matHeaderCellDef>Two weeks ago</th>
+            <td mat-cell *matCellDef="let element">{{element.twoWeeksAgo}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="one month ago">
+            <th mat-header-cell *matHeaderCellDef>One month ago</th>
+            <td mat-cell *matCellDef="let element">{{element.oneMonthAgo}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="two months ago">
+            <th mat-header-cell *matHeaderCellDef>Two months ago</th>
+            <td mat-cell *matCellDef="let element">{{element.twoMonthsAgo}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="three months ago">
+            <th mat-header-cell *matHeaderCellDef>Three months ago</th>
+            <td mat-cell *matCellDef="let element">{{element.threeMonthsAgo}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="half year ago">
+            <th mat-header-cell *matHeaderCellDef>Half year ago</th>
+            <td mat-cell *matCellDef="let element">{{element.halfYearAgo}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="one year ago">
+            <th mat-header-cell *matHeaderCellDef>One year ago</th>
+            <td mat-cell *matCellDef="let element">{{element.oneYearAgo}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</ng-container>
+
+<ng-template #loading>
+    <mat-spinner color="primary"></mat-spinner>
+</ng-template>
