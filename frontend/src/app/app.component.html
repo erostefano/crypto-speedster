@@ -1,13 +1,17 @@
 <mat-toolbar color="primary">
     <span>Crypto Speedster</span>
     <span class="spacer"></span>
-    <a href="https://twitter.com/StefanoEro" target="_blank">
-        <button mat-icon-button>
-            <mat-icon>
-                <img height="100%" src="assets/twitter.svg" alt="Developers Twitter Profile"/>
-            </mat-icon>
-        </button>
-    </a>
+    <nav>
+        <a routerLink="ranking">Ranking</a>
+        <a routerLink="">MarketCap</a>
+        <a href="https://twitter.com/StefanoEro" target="_blank">
+            <button mat-icon-button>
+                <mat-icon>
+                    <img height="100%" src="assets/twitter.svg" alt="Developers Twitter Profile"/>
+                </mat-icon>
+            </button>
+        </a>
+    </nav>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
