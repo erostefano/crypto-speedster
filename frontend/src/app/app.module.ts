@@ -12,9 +12,10 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {RankingPageComponent} from './ranking-page/ranking-page.component';
+import {MarketcapPageComponent} from './marketcap-page/marketcap-page.component';
 
 @NgModule({
-    declarations: [AppComponent, RankingPageComponent],
+    declarations: [AppComponent, RankingPageComponent, MarketcapPageComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
