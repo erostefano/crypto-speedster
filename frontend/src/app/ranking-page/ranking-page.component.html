@@ -1,6 +1,3 @@
-
-<router-outlet></router-outlet>
-
 <ng-container *ngIf="rows$ | async as rows; else loading">
     <table mat-table [dataSource]="rows">
         <ng-container matColumnDef="today">
